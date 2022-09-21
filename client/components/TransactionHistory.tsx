@@ -5,7 +5,7 @@ import { FiArrowUpRight } from 'react-icons/fi'
 import { TransactionState } from '../context/TransactionContext'
 
 const style = {
-  wrapper: `h-full text-white select-none h-full w-screen flex-1 pt-14 flex items-end justify-end pb-12 overflow-scroll px-8`,
+  wrapper: `text-white select-none  flex-1 pt-14 flex items-end justify-end pb-12 overflow-scroll px-8`,
   txHistoryItem: `bg-[#191a1e] rounded-lg px-4 py-2 my-2 flex items-center justify-end`,
   txDetails: `flex items-center`,
   toAddress: `text-[#f48706] mx-2`,

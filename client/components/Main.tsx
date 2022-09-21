@@ -59,57 +59,133 @@ const Main = () => {
   }
 
   return (
-    <div className={style.wrapper}>
-      <div className={style.content}>
-        <div className={style.formHeader}>
-          <div>Swap</div>
-          <div>
-            <RiSettings3Fill />
-          </div>
-        </div>
+    // <div className={style.wrapper}>
+    //   <div className={style.content}>
+    //     <div className={style.formHeader}>
+    //       <div>Swap</div>
+    //       <div>
+    //         <RiSettings3Fill />
+    //       </div>
+    //     </div>
 
-        <div className={style.transferPropContainer}>
-          <input
-            type='text'
-            className={style.transferPropInput}
-            placeholder='0.0'
-            pattern='^[0-9]*[.,]?[0-9]*$'
-            onChange={(e: React.ChangeEvent) => handleChange(e, 'amount')}
-          />
-          <div className={style.currencySelector}>
-            <div className={style.currencySelectorContent}>
-              <div className={style.currencySelectorIcon}>
-                <Image
-                  src='/assets/eth.png'
-                  alt='ethereum logo'
-                  height={20}
-                  width={20}
-                />
-              </div>
-              <div className={style.currencySelectorTicker}>ETH</div>
-              <AiOutlineDown className={style.currencySelectorArrow} />
+    //     <div className={style.transferPropContainer}>
+    //       <input
+    //         type='text'
+    //         className={style.transferPropInput}
+    //         placeholder='0.0'
+    //         pattern='^[0-9]*[.,]?[0-9]*$'
+    //         onChange={(e: React.ChangeEvent) => handleChange(e, 'amount')}
+    //       />
+    //       <div className={style.currencySelector}>
+    //         <div className={style.currencySelectorContent}>
+    //           <div className={style.currencySelectorIcon}>
+    //             <Image
+    //               src='/assets/eth.png'
+    //               alt='ethereum logo'
+    //               height={20}
+    //               width={20}
+    //             />
+    //           </div>
+    //           <div className={style.currencySelectorTicker}>ETH</div>
+    //           <AiOutlineDown className={style.currencySelectorArrow} />
+    //         </div>
+    //       </div>
+    //     </div>
+
+    //     <div className={style.transferPropContainer}>
+    //       <input
+    //         type='text'
+    //         className={style.transferPropInput}
+    //         placeholder='0x ...'
+    //         onChange={(e: React.ChangeEvent) => handleChange(e, 'addressTo')}
+    //       />
+    //       <div className={style.currencySelector}></div>
+    //     </div>
+    //     <div
+    //       onClick={(e: React.MouseEvent) => handleSubmit(e)}
+    //       className={style.confirmButton}
+    //     >
+    //       Confirm
+    //     </div>
+    //   </div>
+    //   <Modal isOpen={!!router.query.loading} style={customStyles}>
+    //     <TransactionLoader />
+    //   </Modal>
+    // </div>
+
+    <div className='container-fluid pt-4 px-4'>
+      <div className='row g-4'>
+        <div className='col-sm-12 col-xl-6 mx-auto'>
+          <div className='bg-secondary rounded h-100 p-4'>
+            <div className={style.formHeader}>
+              <div>Swap</div>{' '}
+              <div>
+                <RiSettings3Fill />{' '}
+              </div>{' '}
             </div>
-          </div>
-        </div>
+            <form>
+              <div className='mb-3'>
+                <label htmlFor='exampleInputEmail1' className='form-label'>
+                  Amount
+                </label>
+                <input
+                  type='text'
+                  className={style.transferPropInput}
+                  placeholder='0.0'
+                  pattern='^[0-9]*[.,]?[0-9]*$'
+                  onChange={(e: React.ChangeEvent) => handleChange(e, 'amount')}
+                />
+                <div className={style.currencySelector}>
+                  {' '}
+                  <div className={style.currencySelectorContent}>
+                    {' '}
+                    <div className={style.currencySelectorIcon}>
+                      {' '}
+                      <Image
+                        src='/assets/eth.png'
+                        alt='ethereum logo'
+                        height={20}
+                        width={20}
+                      />
+                    </div>
+                    <div className={style.currencySelectorTicker}>ETH</div>
+                    <AiOutlineDown className={style.currencySelectorArrow} />
+                  </div>
+                </div>
+                <div id='emailHelp' className='form-text'>
+                  We'll never share your email with anyone else.
+                </div>
+              </div>
+              <div className='mb-3'>
+                <label htmlFor='exampleInputPassword1' className='form-label'>
+                  Address
+                </label>
+                <input
+                  type='text'
+                  className={style.transferPropInput}
+                  placeholder='0x ...'
+                  onChange={(e: React.ChangeEvent) =>
+                    handleChange(e, 'addressTo')
+                  }
+                />
+                <div id='emailHelp' className='form-text'>
+                  We'll never share your email with anyone else.
+                </div>
+              </div>
 
-        <div className={style.transferPropContainer}>
-          <input
-            type='text'
-            className={style.transferPropInput}
-            placeholder='0x ...'
-            onChange={(e: React.ChangeEvent) => handleChange(e, 'addressTo')}
-          />
-          <div className={style.currencySelector}></div>
-        </div>
-        <div
-          onClick={(e: React.MouseEvent) => handleSubmit(e)}
-          className={style.confirmButton}
-        >
-          Confirm
+              <button
+                type='submit'
+                className='btn btn-primary'
+                onClick={(e: React.MouseEvent) => handleSubmit(e)}
+              >
+                Confirm
+              </button>
+            </form>
+          </div>
         </div>
       </div>
       <Modal isOpen={!!router.query.loading} style={customStyles}>
-        <TransactionLoader />
+        <TransactionLoader />{' '}
       </Modal>
     </div>
   )
